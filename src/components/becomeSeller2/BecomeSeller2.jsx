@@ -1,4 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+
 import './becomeseller2.scss'
 const BecomeSeller2 = () => {
     const navigate=useNavigate();

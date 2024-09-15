@@ -1,24 +1,23 @@
 import React from 'react';
-import './App.scss';
-import Footer from './components/Footer/Footer';
-import Navbar from './components/Navbar/Navbar';
-import Add from './pages/add/Add';
-import Message from './pages/message/Message';
-import Messages from './pages/messages/Messages';
-import Orders from "./pages/orders/Orders.jsx";
-import MyGigs from "./pages/myGigs/MyGigs";
-import Gig from "./pages/gig/Gig";
-import Gigs from "./pages/gigs/Gigs";
-import Home from './pages/home/Home';
-import Pay from './pages/pay/Pay';
-import Success from './pages/success/Success';
+import Footer from './components/Footer/Footer.jsx';
+import Navbar from './components/Navbar/Navbar.jsx';
+import Add from './pages/Add';
+import Message from './pages/Message';
+import Messages from './pages/Messages';
+import Orders from "./pages/Orders.jsx";
+import MyGigs from "./pages/MyGigs";
+import Gig from "./pages/Gig";
+import Gigs from "./pages/Gigs";
+import Home from './pages/Home';
+import Pay from './pages/Pay';
+import Success from './pages/Success';
 import {
   createBrowserRouter,
   RouterProvider,
   Outlet,
 } from "react-router-dom";
-import Login from './pages/login/Login';
-import Register from './pages/register/Register';
+import Login from './pages/Login';
+import Register from './pages/Register';
 import {
   QueryClient,
   QueryClientProvider,
@@ -31,83 +30,43 @@ function App() {
   const Layout = () => {
     return (
       <QueryClientProvider client={queryClient} key={55}>
-        <div className='app'>
+        <div className='flex flex-col min-h-screen'>
           <Navbar key={3} />
-          <Outlet key={5454} />
-          <hr></hr>
-          <Footer key={6563}/>
+          <div className='flex-grow'>
+            <Outlet key={5454} />
+          </div>
+          <hr className='my-1.5 h-0.5 border-0.5 border-gray-300' />
+          <Footer key={6563} />
         </div>
       </QueryClientProvider>
     )
   }
+  
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout></Layout>,
+      element: <Layout />,
       children: [
-        {
-          path: "/",
-          element: <Home />
-        },
-        {
-          path: "/gigs",
-          element: <Gigs></Gigs>
-        },
-        {
-          path: "gig/:id",
-          element: <Gig />
-        },
-        {
-          path: "/orders",
-          element: <Orders />
-        },
-        {
-          path: "/mygigs",
-          element: <MyGigs />
-        },
-        {
-          path: "/add",
-          element: <Add />
-        },
-        {
-          path: "/messages",
-          element: <Messages />
-        },
-        {
-          path: "/message/:id",
-          element: <Message />
-        },
-        {
-          path: "/login",
-          element: <Login />
-        },
-        {
-          path: "/register",
-          element: <Register />
-        },
-        {
-          path: "/pay/:id",
-          element: <Pay />
-        },
-        {
-          path: "/success",
-          element: <Success />
-        },
-        {
-          path: "/becomeSeller",
-          element: <BecomeSeller />
-        },
-        {
-          path: "/becomeSeller2",
-          element: <BecomeSeller2 />
-        },
+        { path: "/", element: <Home /> },
+        { path: "/gigs", element: <Gigs /> },
+        { path: "gig/:id", element: <Gig /> },
+        { path: "/orders", element: <Orders /> },
+        { path: "/mygigs", element: <MyGigs /> },
+        { path: "/add", element: <Add /> },
+        { path: "/messages", element: <Messages /> },
+        { path: "/message/:id", element: <Message /> },
+        { path: "/login", element: <Login /> },
+        { path: "/register", element: <Register /> },
+        { path: "/pay/:id", element: <Pay /> },
+        { path: "/success", element: <Success /> },
+        { path: "/becomeSeller", element: <BecomeSeller /> },
+        { path: "/becomeSeller2", element: <BecomeSeller2 /> },
       ]
     }
   ]);
+  
   return (
-    [
-      <RouterProvider key={1} router={router} />
-    ]
+    <RouterProvider key={1} router={router} />
   );
 }
 

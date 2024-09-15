@@ -1,21 +1,19 @@
-.slide {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 100px;
+/* styles.css */
+.slick-prev,
+.slick-next {
+    width: 2.5rem; /* 40px */
+    height: 2.5rem; /* 40px */
+    background-color: #edf2f7; /* Light gray background */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
 
-    .container {
-        width: 1400px;
+.slick-prev {
+    left: 1rem; /* Adjust as needed */
+}
 
-        .carousel-prev,
-        .carousel-next {
-            width: 50px;
-            height: 50px;
-            background-color: rgb(237, 236, 236);
-            border-radius: 50%;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-        }
-    }
+.slick-next {
+    right: 1rem; /* Adjust as needed */
 }

@@ -1,58 +1,76 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import newRequest from "../../utils/newRequest";
-import "./review.scss";
+
 const Review = ({ review }) => {
-  const [like, setlike] = useState(false);
-  const [dislike, setdislike] = useState(false);
-  const { isLoading, error, data } = useQuery(
-    {
-      queryKey: [review.userId],
-      queryFn: () =>
-        newRequest.get(`/users/${review.userId}`).then((res) => {
-          return res.data;
-        }),
-    },
-  );
-  console.log(error);
-  const handlelike=() => {
-    setlike(true);
-  }
-  const handledislike=() => {
-    setdislike(true);
-  }
+  const [like, setLike] = useState(false);
+  const [dislike, setDislike] = useState(false);
+
+  const { isLoading, error, data } = useQuery({
+    queryKey: [review.userId],
+    queryFn: () =>
+      newRequest.get(`/users/${review.userId}`).then((res) => res.data),
+  });
+
+  const handleLike = () => {
+    setLike(true);
+  };
+
+  const handleDislike = () => {
+    setDislike(true);
+  };
+
   return (
-    <div className="review">
+    <div className="flex flex-col gap-5 my-5">
       {isLoading ? (
-        "loading"
+        <div className="loader"></div>
       ) : error ? (
-        "error"
+        "Error"
       ) : (
-        <div className="user">
-          <img className="pp" src={data.img || "/images/noavtar.jpeg"} alt="" />
-          <div className="info">
-            <span>{data.username}</span>
-            <div className="country">
+        <div className="flex items-center gap-4">
+          <img
+            className="w-12 h-12 rounded-full"
+            src={data.img || "/images/noavtar.jpeg"}
+            alt=""
+          />
+          <div className="flex flex-col">
+            <span className="font-semibold">{data.username}</span>
+            <div className="flex items-center text-gray-500 gap-2">
               <span>{data.country}</span>
             </div>
           </div>
         </div>
       )}
-      <div className="stars">
+      <div className="flex items-center gap-2">
         {Array(review.star)
           .fill()
-          .map((item, i) => (
-            <img src="/images/star.png" alt="" key={i} />
+          .map((_, i) => (
+            <img
+              src="/images/star.png"
+              alt=""
+              className="w-3.5 h-3.5"
+              key={i}
+            />
           ))}
-        <span>{review.star}</span>
+        <span className="text-yellow-500 font-bold">{review.star}</span>
       </div>
       <p>{review.desc}</p>
-      <div className="helpful">
-        <span>Helpful?</span>
-        {<img src={like?'/images/like.png':'/images/likeColor.png'} alt="" onClick={handlelike} />}
-        <span>Yes</span>
-        <img src={dislike?'/images/dislike.png':'/images/dislike_color.png'} alt="" onClick={handledislike} />
-        <span>No</span>
+      <div className="flex items-center gap-2">
+        <span className="text-gray-700">Helpful?</span>
+        <img
+          src={like ? '/images/like.png' : '/images/likeColor.png'}
+          alt=""
+          className="w-3.5"
+          onClick={handleLike}
+        />
+        <span className="text-gray-700">Yes</span>
+        <img
+          src={dislike ? '/images/dislike.png' : '/images/dislike_color.png'}
+          alt=""
+          className="w-3.5"
+          onClick={handleDislike}
+        />
+        <span className="text-gray-700">No</span>
       </div>
     </div>
   );

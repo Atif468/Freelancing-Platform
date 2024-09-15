@@ -1,16 +1,28 @@
 import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import './slide.scss';
-import { Slider } from "infinite-react-carousel";
 
-const Slide = ({children,slidesToShow, arrowsScroll}) => {
-    return ([
-        <div className="slide">
-            <div className="container">
-                <Slider slidesToShow={slidesToShow} arrowsScroll={arrowsScroll}>
+const Slide = ({ children, slidesToShow, arrowsScroll }) => {
+    const settings = {
+        slidesToShow: slidesToShow || 1,
+        slidesToScroll: arrowsScroll || 1,
+        dots: true,
+        infinite: true,
+        speed: 500,
+        arrows: true,
+    };
+
+    return (
+        <div className="relative flex justify-center pb-24">
+            <div className="w-full max-w-7xl">
+                <Slider {...settings}>
                     {children}
                 </Slider>
             </div>
         </div>
-    ]);
-}
+    );
+};
+
 export default Slide;
