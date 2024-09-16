@@ -13,7 +13,7 @@ const BecomeSeller = () => {
                         <img src="/images/becomeseller1.svg" alt="check" className="w-8 h-8" />
                         Learn what makes a successful profile
                     </div>
-                    <p className="text-lg font-light text-gray-600 leading-7 tracking-wide">Discover the do’s and don’ts to ensure you’re always on the right track.</p>
+                    <p className="text-lg font-light text-gray-600 leading-7 tracking-wide"> the do’s and don’ts to ensure you’re always on the right track.</p>
                     <hr className="my-4" />
                     <div className="flex items-center gap-4 font-medium text-lg">
                         <img src="/images/becomeseller2.svg" alt="check" className="w-8 h-8" />

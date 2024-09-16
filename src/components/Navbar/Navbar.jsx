@@ -45,24 +45,19 @@ const Navbar = () => {
 
   return (
     <div
-      className={`${
-        active || pathname !== "/"
-          ? "bg-white text-black shadow-md"
-          : "bg-black text-white"
-      } transition-all duration-500 sticky top-0 z-50`}
+      className="transition-all duration-500 sticky top-0 z-50 backdrop-blur-md text-white"
     >
       <div className="container mx-auto flex justify-between items-center py-4 px-5 max-w-7xl">
         {/* Logo */}
         <div className="text-3xl font-bold" data-aos="zoom-in">
           <Link to="/" className="flex items-center space-x-1">
-            <span className={`${active ? "text-black" : "text-white"}`}>
-              GigVerse
+            <span className="text-white">
+              Gig<span className="text-green-600">Verse</span> 
             </span>
-            <span className="text-green-500">.</span>
+            <span className="text-xl mt-2" >.com</span>
           </Link>
         </div>
 
-        {/* Search Bar */}
         {active && (
           <div className="hidden md:flex items-center">
             <input
@@ -101,13 +96,15 @@ const Navbar = () => {
               className="relative cursor-pointer"
               onClick={() => setOpen(!open)}
             >
+              <div className="flex flex-row gap-2">
               <img
                 src="\images\man.png"
                 alt="User"
                 className="w-8 h-8 rounded-full object-cover"
               />
 
-              <span>{current_user?.username}</span>
+              <span className="mt-2">{current_user?.username}</span>
+              </div>
               {open && (
                 <div className="absolute right-0 top-10 bg-white shadow-lg rounded z-10 p-4 flex flex-col space-y-2 text-gray-700">
                   {current_user.isSeller && (
@@ -139,10 +136,9 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Responsive Menu */}
       {(active1 || pathname !== "/") && (
         <>
-          <hr className="border-gray-200" />
+          <hr />
           <div className="container mx-auto py-2 px-5 flex justify-between max-w-7xl">
             <Link
               key={9983}
@@ -200,7 +196,7 @@ const Navbar = () => {
               Programming & Tech
               <span className="absolute left-0 -bottom-0.5 h-[3px] rounded w-0 bg-[#1dbf73] opacity-75 transition-all duration-500 ease-in-out group-hover:w-full"></span>
             </Link>
-            <Link
+            {/* <Link
               key={19988}
               className="relative menulink group transition-all duration-500 ease-in-out"
               to="/"
@@ -215,9 +211,9 @@ const Navbar = () => {
             >
               Lifestyle
               <span className="absolute left-0 -bottom-0.5 h-[3px] rounded w-0 bg-[#1dbf73] opacity-75 transition-all duration-500 ease-in-out group-hover:w-full"></span>
-            </Link>
+            </Link> */}
           </div>
-          <hr className="border-gray-200" />
+          <hr />
         </>
       )}
     </div>

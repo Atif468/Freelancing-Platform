@@ -35,7 +35,7 @@ const Gigs = () => {
             <div className="container w-full max-w-screen-xl mx-auto flex flex-col gap-4">
                 <span className="text-gray-500 text-sm font-light">FIVERR &gt; GRAPHICS & DESIGN &gt;</span>
                 <h1 className="text-3xl font-bold">design</h1>
-                <p className="text-gray-600 text-base font-light">Explore the boundaries of art and technology with Fiverr's AI artists</p>
+                <p className="text-gray-600 text-base font-light">Explore the boundaries of art and technology with GigVerse's AI artists</p>
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                     <div className="flex items-center gap-2 text-gray-600 font-semibold">
                         <span>Budget</span>

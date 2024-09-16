@@ -10,7 +10,7 @@ const Slide = ({ children, slidesToShow, arrowsScroll }) => {
         slidesToScroll: arrowsScroll || 1,
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 900,
         arrows: true,
     };
 

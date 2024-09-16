@@ -6,7 +6,7 @@ import { cards, projects } from "../data";
 import CatCard from "../components/catCard/CatCard";
 import ProjectCard from "../components/projectCard/ProjectCard";
 import { useNavigate } from "react-router-dom";
-
+ 
 const Home = () => {
     const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ const Home = () => {
                     <CatCard item={card} key={card.id} />
                 ))}
             </Slide>
-            <div className="features py-8 md:py-16 lg:py-24">
+            {/* <div className="features py-8 md:py-16 lg:py-24">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row items-center justify-between">
                         <div className="flex-1 mb-8 md:mb-0">
@@ -50,8 +50,8 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="explore py-8 md:py-16 lg:py-24 bg-gray-100">
+            </div> */}
+             <div className="explore py-8 md:py-16 lg:py-24">
                 <div className="container mx-auto px-4">
                     <h1 className="text-2xl md:text-3xl font-bold mb-8">You need it, we've got it</h1>
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -74,12 +74,12 @@ const Home = () => {
                         ))}
                     </div>
                 </div>
-            </div>
-            <div className="features dark py-8 md:py-16 lg:py-24 bg-gray-800 text-white">
+            </div> 
+            <div className="features dark py-8 md:py-16 lg:py-24 text-white">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row items-center justify-between">
                         <div className="flex-1 mb-8 md:mb-0">
-                            <h1 className="text-2xl md:text-3xl font-bold mb-4">fiverr <em><span className="font-light">business.</span></em></h1>
+                            <h1 className="text-2xl md:text-3xl font-bold mb-4">GigVerse <em><span className="font-light">business.</span></em></h1>
                             <h1 className="text-2xl md:text-3xl font-bold mb-4">A solution built for <em>business</em></h1>
                             <p className="mb-4">Upgrade to a curated experience to access vetted talent and exclusive tools</p>
                             <div className="flex items-center mb-4">
@@ -98,7 +98,7 @@ const Home = () => {
                                 <img src="/images/check.png" alt="check" className="w-6 h-6 mr-2" />
                                 <span className="font-semibold">Business payment solutions</span>
                             </div>
-                            <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">Explore Fiverr Business</button>
+                            <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">Explore GigVerse Business</button>
                         </div>
                         <div className="flex-1">
                             <img src="images/business-desktop-870-x1.webp" alt="business" className="w-full" />
@@ -106,13 +106,13 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="logo_maker py-8 md:py-16 lg:py-24">
+            <div className="logo_maker py-8 md:py-16 lg:py-24 text-white">
                 <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
                     <div className="flex-1 mb-8 md:mb-0 text-center md:text-left">
-                        <h1 className="text-2xl md:text-3xl font-bold mb-4">fiverr <span className="font-bold">logomaker.</span></h1>
+                        <h1 className="text-2xl md:text-3xl font-bold mb-4">GigVerse <span className="font-bold">logomaker.</span></h1>
                         <p className="text-lg mb-4">Make an incredible logo<br /><em className="text-xl">in minutes</em></p>
                         <p className="mb-4">Pre-designed by top talent. Just add your touch.</p>
-                        <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600"><strong>Try Fiverr Logo Maker</strong></button>
+                        <button className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600"><strong>Try GigVerse Logo Maker</strong></button>
                     </div>
                     <div className="flex-1">
                         <img src="/images/logomaker.webp" alt="logomaker" className="w-full" />
@@ -120,24 +120,14 @@ const Home = () => {
                 </div>
             </div>
             <div className="secondslide py-8 md:py-16 lg:py-24">
-                <p className="text-center text-2xl md:text-3xl font-bold mb-8">Inspiring work made on Fiverr</p>
+                <p className="text-center text-2xl md:text-3xl font-bold mb-8 text-white">Inspiring work made on GigVerse</p>
                 <Slide slidesToShow={4} arrowsScroll={5}>
                     {projects.map(card => (
                         <ProjectCard item={card} key={card.id} />
                     ))}
                 </Slide>
             </div>
-            <div className="last_hero py-8 md:py-16 lg:py-24">
-                <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-                    <div className="flex-1 mb-8 md:mb-0 text-center md:text-left">
-                        <h1 className="text-2xl md:text-3xl font-bold mb-4">Suddenly it's all so <em><span className="font-bold">doable.</span></em></h1>
-                        <button onClick={() => navigate(`/register`)} className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">Join Fiverr</button>
-                    </div>
-                    <div className="flex-1">
-                        <img src="/images/last_hero.webp" alt="last hero" className="w-full" />
-                    </div>
-                </div>
-            </div>
+          
         </div>
     );
 };
