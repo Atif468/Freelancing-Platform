@@ -1,6 +1,6 @@
 import React from "react";
 import Featured from "../components/featured/Featured";
-import TrustedBy from "../components/Trusted By/TrustedBy";
+// import TrustedBy from "../components/Trusted By/TrustedBy";
 import Slide from "../components/Slide/Slide";
 import { cards, projects } from "../data";
 import CatCard from "../components/catCard/CatCard";
@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <div className="home">
             <Featured />
-            <TrustedBy />
+            {/* <TrustedBy /> */}
             <Slide slidesToShow={5} arrowsScroll={5}>
                 {cards.map(card => (
                     <CatCard item={card} key={card.id} />

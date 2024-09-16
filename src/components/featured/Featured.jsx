@@ -10,7 +10,6 @@ function Featured() {
       navigate(`gigs?search=${input}`);
     }
   };
-  // Discover top freelance services tailored for your business
   return (
     <div
       className={`featured h-[600px] flex items-center justify-center text-black overflow-hidden bg-cover bg-center bg-[url('hero2.webp')]`}
@@ -18,9 +17,10 @@ function Featured() {
       <div className="container w-[1400px] flex items-center absolute">
         <div className="left mt-[45px] flex flex-col gap-[30px]">
           <h1 className="text-[50px] font-bold">
-          Discover{" "}
-            <span className="italic font-light">top freelance</span> <br />
-            <span className="italic font-light">services</span> tailored for your business
+            Discover <span className="italic font-light">top freelance</span>{" "}
+            <br />
+            <span className="italic font-light">services</span> tailored for
+            your business
           </h1>
           <div className="search bg-white rounded-lg flex items-center justify-between overflow-hidden border border-gray-400">
             <div className="searchInput flex items-center gap-2 px-3 border-gray-400">

@@ -106,7 +106,7 @@ const Navbar = () => {
                 alt="User"
                 className="w-8 h-8 rounded-full object-cover"
               />
-              
+
               <span>{current_user?.username}</span>
               {open && (
                 <div className="absolute right-0 top-10 bg-white shadow-lg rounded z-10 p-4 flex flex-col space-y-2 text-gray-700">
@@ -128,7 +128,7 @@ const Navbar = () => {
                   </Link>
                   <span
                     onClick={handleLogout}
-                    className="hover:text-red-500 cursor-pointer" 
+                    className="hover:text-red-500 cursor-pointer"
                   >
                     Logout
                   </span>

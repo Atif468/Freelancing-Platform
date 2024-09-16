@@ -8,26 +8,26 @@ const Register = () => {
   const [user, setUser] = useState({
     username: "",
     email: "",
-    password: "", // Fixed typo from "passwors" to "password"
+    password: "",
     img: "",
     country: "",
     isSeller: false,
-    desc: ""
+    desc: "",
   });
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setUser(prev => ({
+    setUser((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
   const handleSeller = (e) => {
-    setUser(prev => ({
+    setUser((prev) => ({
       ...prev,
-      isSeller: e.target.checked
+      isSeller: e.target.checked,
     }));
   };
 
@@ -35,19 +35,26 @@ const Register = () => {
     e.preventDefault();
     const url = await upload(file);
     try {
-      await newRequest.post('/auth/register', {
+      const response = await newRequest.post("/auth/register", {
         ...user,
-        img: url
+        img: url,
       });
-      navigate('/');
+      console.log("Registration successful:", response.data);
+      navigate("/");
     } catch (error) {
-      console.log(error);
+      console.log(
+        "Registration error:",
+        error.response ? error.response.data : error.message
+      );
     }
   };
 
   return (
     <div className="flex justify-center items-center p-8 lg:p-16">
-      <form onSubmit={handleSubmit} className="w-full max-w-4xl flex gap-8 lg:gap-16">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-4xl flex gap-8 lg:gap-16"
+      >
         <div className="flex-1 flex flex-col gap-4">
           <h1 className="text-gray-500 text-2xl mb-4">Create a new account</h1>
           <label className="text-gray-500 text-lg">Username</label>
@@ -76,7 +83,7 @@ const Register = () => {
           <label className="text-gray-500 text-lg">Profile Picture</label>
           <input
             type="file"
-            onChange={e => setFile(e.target.files[0])}
+            onChange={(e) => setFile(e.target.files[0])}
             className="p-4 border border-gray-300 rounded"
           />
           <label className="text-gray-500 text-lg">Country</label>
@@ -95,9 +102,13 @@ const Register = () => {
           </button>
         </div>
         <div className="flex-1 flex flex-col gap-4">
-          <h1 className="text-gray-500 text-2xl mb-4">I want to become a seller</h1>
+          <h1 className="text-gray-500 text-2xl mb-4">
+            I want to become a seller
+          </h1>
           <div className="flex items-center gap-4">
-            <label className="text-gray-500 text-lg">Activate the seller account</label>
+            <label className="text-gray-500 text-lg">
+              Activate the seller account
+            </label>
             <label className="relative inline-block w-12 h-6">
               <input
                 type="checkbox"
@@ -128,5 +139,5 @@ const Register = () => {
       </form>
     </div>
   );
-}
+};
 export default Register;
