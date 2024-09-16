@@ -4,13 +4,19 @@ import upload from '../utils/upload.js';
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import newRequest from "../utils/newRequest.js";
 import { useNavigate } from "react-router-dom";
-
+import Aos from "aos";
 const Add = () => {
     const [singleFile, setsingleFile] = useState(undefined);
     const [files, setFiles] = useState([]);
     const [uploading, setUploading] = useState(false);
     const [state, dispatch] = useReducer(gigReducer, INITIAL_STATE);
 
+    useEffect(() => {
+        Aos.init({
+          duration: 2000,
+        });
+      }, []);
+      
     const handlechange = (e) => {
         dispatch({
             type: "CHANGE_INPUT", payload: {

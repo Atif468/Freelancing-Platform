@@ -1,9 +1,8 @@
 import React from "react";
-import './footer.scss';
 const Footer = () => {
-    return ([
-        <div className="footer">
-            <div className="container">
+    return (
+        <div className="">
+            {/* <div className="container">
                 <div className="top">
                     <div className="item">
                         <h2>Categories</h2>
@@ -95,8 +94,10 @@ const Footer = () => {
                         
                     </div>
                 </div>
-            </div>
+            </div> */}
+
+            This is a footer section
         </div>
-    ]);
+    );
 }
 export default Footer;

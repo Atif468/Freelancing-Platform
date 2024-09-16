@@ -1,39 +1,63 @@
 import React, { useState } from "react";
-import './featured.scss';
-import{ useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function Featured() {
-  const [input,setinput]=useState("");
-  const navigate=useNavigate();
-  const handlesubmit=()=>{
-    navigate(`gigs?search=${input}`);
-  }
-    return (
-     [ 
-      <div className="featured">
-        <div className="container">
-          <div className="left">
-            <h1>
-              Find the perfect <span>freelance</span> <br></br>
-              <span>services</span> for your business
-            </h1>
-            <div className="search">
-              <div className="searchInput">
-                <img src="/images/search.png" alt="" />
-                <input type="text" placeholder='Try "building mobile app"' onChange={e=>setinput(e.target.value)} />
-              </div>
-              <button onClick={handlesubmit}>Search</button>
+  const [input, setInput] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    if (input.trim()) {
+      navigate(`gigs?search=${input}`);
+    }
+  };
+  // Discover top freelance services tailored for your business
+  return (
+    <div
+      className={`featured h-[600px] flex items-center justify-center text-black overflow-hidden bg-cover bg-center bg-[url('hero2.webp')]`}
+    >
+      <div className="container w-[1400px] flex items-center absolute">
+        <div className="left mt-[45px] flex flex-col gap-[30px]">
+          <h1 className="text-[50px] font-bold">
+          Discover{" "}
+            <span className="italic font-light">top freelance</span> <br />
+            <span className="italic font-light">services</span> tailored for your business
+          </h1>
+          <div className="search bg-white rounded-lg flex items-center justify-between overflow-hidden border border-gray-400">
+            <div className="searchInput flex items-center gap-2 px-3 border-gray-400">
+              <img src="/images/search.png" alt="search" className="w-5 h-5" />
+              <input
+                type="text"
+                placeholder='Try "building mobile app"'
+                onChange={(e) => setInput(e.target.value)}
+                className="border-none outline-none placeholder-gray-500 text-sm w-full"
+              />
             </div>
-            <div className="popular">
-              <span>Popular:</span>
-              <button onClick={e=>navigate(`gigs?search=${e.target.innerHTML}`)}>Web Design</button>
-              <button onClick={e=>navigate(`gigs?search=${e.target.innerHTML}`)}>WordPress</button>
-              <button onClick={e=>navigate(`gigs?search=${e.target.innerHTML}`)}>Logo Design</button>
-              <button onClick={e=>navigate(`gigs?search=${e.target.innerHTML}`)}>AI Services</button>
-            </div>
+            <button
+              onClick={handleSubmit}
+              className="bg-[#1dbf73] text-white font-medium text-sm sm:text-base md:text-lg px-4 py-2 md:px-6 md:py-3"
+            >
+              Search
+            </button>
+          </div>
+
+          <div className="popular flex items-center gap-[10px] text-base font-medium">
+            <span className="text-gray-700">Popular:</span>
+            {["Web Design", "WordPress", "Logo Design", "AI Services"].map(
+              (item) => (
+                <button
+                  key={item}
+                  onClick={() => navigate(`gigs?search=${item}`)}
+                  className="border border-gray-800 py-1 px-3 rounded-full hover:text-black"
+                >
+                  {item}
+                </button>
+              )
+            )}
           </div>
         </div>
-      </div>]
-    );
-  }
+      </div>
+    </div>
+  );
+}
+
 export default Featured;

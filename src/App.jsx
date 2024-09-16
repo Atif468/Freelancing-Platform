@@ -24,13 +24,14 @@ import {
 } from '@tanstack/react-query'
 import BecomeSeller from './components/becomeSeller/BecomeSeller';
 import BecomeSeller2 from './components/becomeSeller2/BecomeSeller2';
+import './styles/global.css';
 
 function App() {
   const queryClient = new QueryClient();
   const Layout = () => {
     return (
       <QueryClientProvider client={queryClient} key={55}>
-        <div className='flex flex-col min-h-screen'>
+        <div className='flex flex-col'>
           <Navbar key={3} />
           <div className='flex-grow'>
             <Outlet key={5454} />
