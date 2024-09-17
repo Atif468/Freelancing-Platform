@@ -1,0 +1,19 @@
+/* styles.css */
+.slick-prev,
+.slick-next {
+    width: 2.5rem; /* 40px */
+    height: 2.5rem; /* 40px */
+    background-color: #edf2f7; /* Light gray background */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slick-prev {
+    left: 1rem; /* Adjust as needed */
+}
+
+.slick-next {
+    right: 1rem; /* Adjust as needed */
+}
