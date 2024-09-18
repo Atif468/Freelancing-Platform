@@ -1,0 +1,25 @@
+@keyframes change {
+    0% {
+      background-image: url('hero1.webp');
+    }
+    20% {
+      background-image: url('hero2.webp');
+    }
+    40% {
+      background-image: url('hero3.webp');
+    }
+    60% {
+      background-image: url('hero4.webp');
+    }
+    80% {
+      background-image: url('hero5.webp');
+    }
+    100% {
+      background-image: url('hero6.webp');
+    }
+  }
+  
+  .featured {
+    animation: change 60s infinite;
+  }
+  
